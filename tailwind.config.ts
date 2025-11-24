@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // TAMV Custom Colors
+        anubis: {
+          DEFAULT: "hsl(var(--anubis-gold))",
+        },
+        isabella: {
+          DEFAULT: "hsl(var(--isabella-purple))",
+        },
+        dreamweave: {
+          DEFAULT: "hsl(var(--dreamweave-cyan))",
+        },
+        quantum: {
+          DEFAULT: "hsl(var(--quantum-teal))",
+        },
+        sovereign: {
+          DEFAULT: "hsl(var(--sovereign-amber))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
