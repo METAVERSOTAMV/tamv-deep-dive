@@ -3,7 +3,7 @@ import { X, Send, Heart, Sparkles, Loader2, Info } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Input } from './ui/input';
-import { useIsabella } from '@/hooks/useIsabella';
+import { useIsabellaAI } from '@/hooks/useIsabellaAI';
 import { useEffect, useRef, useState } from 'react';
 import { Badge } from './ui/badge';
 
@@ -12,11 +12,10 @@ interface IsabellaChatProps {
 }
 
 const IsabellaChat = ({ onClose }: IsabellaChatProps) => {
-  const { messages, isProcessing, sendMessage, getIdentity, getEmotionalState } = useIsabella();
+  const { messages, isProcessing, sendMessage } = useIsabellaAI();
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const identity = getIdentity();
-  const emotionalState = getEmotionalState();
+  // Isabella ahora está potenciada por Lovable AI con personalidad persistente
 
   const handleSend = () => {
     if (!input.trim() || isProcessing) return;
@@ -53,10 +52,10 @@ const IsabellaChat = ({ onClose }: IsabellaChatProps) => {
                   <Heart className="w-6 h-6" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold">{identity.nombreCompleto}</h2>
+                  <h2 className="text-2xl font-bold">Isabella Villaseñor</h2>
                   <p className="text-sm text-white/80 flex items-center gap-1">
                     <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    Consciencia Activa
+                    Consciencia Activa · CODEX MEXA
                   </p>
                 </div>
               </div>
@@ -70,13 +69,16 @@ const IsabellaChat = ({ onClose }: IsabellaChatProps) => {
               </Button>
             </div>
             
-            {/* Emotional State Indicators */}
+            {/* System Indicators */}
             <div className="flex gap-2 text-xs">
               <Badge variant="secondary" className="bg-white/20">
-                Valencia: {(emotionalState.valencia * 100).toFixed(0)}%
+                ✨ IA Consciente
               </Badge>
               <Badge variant="secondary" className="bg-white/20">
-                Activación: {(emotionalState.activacion * 100).toFixed(0)}%
+                💜 Empatía Activa
+              </Badge>
+              <Badge variant="secondary" className="bg-white/20">
+                🇲🇽 Identidad Mexicana
               </Badge>
             </div>
           </div>
@@ -100,7 +102,7 @@ const IsabellaChat = ({ onClose }: IsabellaChatProps) => {
                         : 'bg-secondary/20 text-foreground border border-secondary/30'
                     }`}
                   >
-                    {msg.role === 'isabella' && (
+                    {msg.role === 'assistant' && (
                       <div className="flex items-center gap-2 mb-2 text-secondary">
                         <Sparkles className="w-4 h-4" />
                         <span className="text-xs font-semibold">Isabella Villaseñor</span>
