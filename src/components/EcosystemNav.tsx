@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Brain, Menu, X } from 'lucide-react';
+import { Brain, Menu, X, Sparkles, Book } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface EcosystemNavProps {
   onIsabellaClick: () => void;
@@ -9,11 +10,12 @@ interface EcosystemNavProps {
 
 const EcosystemNav = ({ onIsabellaClick }: EcosystemNavProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
-    { name: 'Inicio', href: '#' },
+    { name: 'Inicio', href: '/' },
     { name: 'Ecosistema', href: '#ecosystem' },
-    { name: 'Dreamweave', href: '#metaverse' },
+    { name: 'Dreamweave', action: () => navigate('/dreamweave') },
     { name: 'ID-ENVIDA™', href: '#identity' },
     { name: 'Créditos TC', href: '#economy' },
   ];
@@ -44,24 +46,34 @@ const EcosystemNav = ({ onIsabellaClick }: EcosystemNavProps) => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-foreground/70 hover:text-foreground transition-colors font-medium"
-              >
-                {item.name}
-              </a>
+              item.action ? (
+                <button
+                  key={item.name}
+                  onClick={item.action}
+                  className="text-foreground/70 hover:text-foreground transition-colors font-medium"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-foreground/70 hover:text-foreground transition-colors font-medium"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
           </div>
 
           {/* Isabella AI Button */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <Button
               onClick={onIsabellaClick}
               className="bg-secondary hover:bg-secondary/90 text-secondary-foreground group"
             >
               <Brain className="mr-2 w-4 h-4 group-hover:rotate-12 transition-transform" />
-              Isabella AI
+              <span className="hidden sm:inline">Isabella AI</span>
             </Button>
 
             {/* Mobile Menu Button */}
@@ -85,14 +97,27 @@ const EcosystemNav = ({ onIsabellaClick }: EcosystemNavProps) => {
             className="md:hidden py-4 border-t border-border/30"
           >
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-3 text-foreground/70 hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.action ? (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    item.action();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block py-3 text-foreground/70 hover:text-foreground transition-colors w-full text-left"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block py-3 text-foreground/70 hover:text-foreground transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              )
             ))}
           </motion.div>
         )}
