@@ -16,15 +16,15 @@ const Index = () => {
   const [showIsabella, setShowIsabella] = useState(false);
 
   const districts = [
-    { icon: Building2, name: "Ciudad TAMV", desc: "Mapa Tridimensional Vivo", color: "from-violet-500 to-purple-600", path: "/dreamweave" },
-    { icon: Users, name: "Identity ANUBIS", desc: "Avatar, Energía y Reputación", color: "from-blue-500 to-cyan-500", path: "/auth" },
-    { icon: Heart, name: "Plaza Central", desc: "Lobby Social XR", color: "from-pink-500 to-rose-500", path: "/dreamweave" },
-    { icon: BookOpen, name: "Distrito Creación", desc: "BookPI + DreamSpaces", color: "from-amber-500 to-orange-500", path: "/dreamweave" },
-    { icon: Brain, name: "Conocimiento", desc: "Labs y Educación", color: "from-emerald-500 to-green-500", path: "/devhub" },
-    { icon: Zap, name: "Energía y Clima", desc: "TAU Ledger Sostenible", color: "from-yellow-500 to-amber-500", path: "/devhub" },
-    { icon: Coins, name: "Economía Simbiótica", desc: "Mercado 3D TAU", color: "from-green-500 to-emerald-500", path: "/auth" },
-    { icon: Sparkles, name: "Santuario ISABELLA", desc: "Bienestar Personal", color: "from-purple-500 to-violet-500", path: "/" },
-    { icon: Vote, name: "Gobernanza DAO", desc: "DEKATEOTL XR", color: "from-indigo-500 to-blue-500", path: "/devhub" },
+    { icon: Building2, name: "Ciudad TAMV", desc: "Mapa Tridimensional Vivo", color: "from-violet-500 to-purple-600", path: "/district/ciudad-tamv" },
+    { icon: Users, name: "Identity ANUBIS", desc: "Avatar, Energía y Reputación", color: "from-blue-500 to-cyan-500", path: "/district/identity-anubis" },
+    { icon: Heart, name: "Plaza Central", desc: "Lobby Social XR", color: "from-pink-500 to-rose-500", path: "/district/plaza-central" },
+    { icon: BookOpen, name: "Distrito Creación", desc: "BookPI + DreamSpaces", color: "from-amber-500 to-orange-500", path: "/district/distrito-creacion" },
+    { icon: Brain, name: "Conocimiento", desc: "Labs y Educación", color: "from-emerald-500 to-green-500", path: "/district/conocimiento" },
+    { icon: Zap, name: "Energía y Clima", desc: "TAU Ledger Sostenible", color: "from-yellow-500 to-amber-500", path: "/district/energia-clima" },
+    { icon: Coins, name: "Economía Simbiótica", desc: "Mercado 3D TAU", color: "from-green-500 to-emerald-500", path: "/district/economia-simbiotica" },
+    { icon: Sparkles, name: "Santuario ISABELLA", desc: "Bienestar Personal", color: "from-purple-500 to-violet-500", path: "/district/santuario-isabella" },
+    { icon: Vote, name: "Gobernanza DAO", desc: "DEKATEOTL XR", color: "from-indigo-500 to-blue-500", path: "/district/gobernanza-dao" },
   ];
 
   const features = [

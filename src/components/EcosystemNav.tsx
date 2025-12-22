@@ -14,10 +14,10 @@ const EcosystemNav = ({ onIsabellaClick }: EcosystemNavProps) => {
 
   const navItems = [
     { name: 'Inicio', href: '/' },
-    { name: 'Ecosistema', href: '#ecosystem' },
+    { name: 'Ecosistema', action: () => navigate('/district/ciudad-tamv') },
     { name: 'Dreamweave', action: () => navigate('/dreamweave') },
-    { name: 'ID-ENVIDA™', href: '#identity' },
-    { name: 'Créditos TC', href: '#economy' },
+    { name: 'DevHub', action: () => navigate('/devhub') },
+    { name: 'Estado', action: () => navigate('/status') },
   ];
 
   return (
