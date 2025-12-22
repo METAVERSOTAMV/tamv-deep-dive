@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import DreamweaveSpaces from "./pages/DreamweaveSpaces";
 import DevHub from "./pages/DevHub";
+import Districts from "./pages/Districts";
+import SystemStatus from "./pages/SystemStatus";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/devhub" element={<DevHub />} />
+          <Route path="/status" element={<SystemStatus />} />
+          <Route path="/district/:districtId" element={<Districts />} />
           <Route 
             path="/dreamweave" 
             element={
