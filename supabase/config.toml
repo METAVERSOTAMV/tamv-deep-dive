@@ -1,5 +1,23 @@
 project_id = "qobdhbkwnkgnxovpsqzp"
 
+[functions.phoenix-protocol]
+verify_jwt = false
+
+[functions.isabella-initiation]
+verify_jwt = false
+
+[functions.dekateotl-guardian]
+verify_jwt = false
+
+[functions.tamv-economy]
+verify_jwt = false
+
+[functions.id-nvida]
+verify_jwt = false
+
+[functions.dao-governance]
+verify_jwt = false
+
 [functions.isabella-chat]
 verify_jwt = false
 

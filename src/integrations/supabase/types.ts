@@ -14,6 +14,96 @@ export type Database = {
   }
   public: {
     Tables: {
+      audit_logs: {
+        Row: {
+          action: string
+          actor_id: string | null
+          created_at: string
+          details: Json | null
+          event_type: string
+          hash: string | null
+          id: string
+          ip_address: string | null
+          severity: string | null
+          target_entity: string | null
+          target_id: string | null
+          user_agent: string | null
+          verified: boolean | null
+        }
+        Insert: {
+          action: string
+          actor_id?: string | null
+          created_at?: string
+          details?: Json | null
+          event_type: string
+          hash?: string | null
+          id?: string
+          ip_address?: string | null
+          severity?: string | null
+          target_entity?: string | null
+          target_id?: string | null
+          user_agent?: string | null
+          verified?: boolean | null
+        }
+        Update: {
+          action?: string
+          actor_id?: string | null
+          created_at?: string
+          details?: Json | null
+          event_type?: string
+          hash?: string | null
+          id?: string
+          ip_address?: string | null
+          severity?: string | null
+          target_entity?: string | null
+          target_id?: string | null
+          user_agent?: string | null
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
+      consent_entries: {
+        Row: {
+          consent_type: string
+          created_at: string
+          data_categories: string[] | null
+          expires_at: string | null
+          granted: boolean
+          hash: string | null
+          id: string
+          purpose: string | null
+          revoked_at: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          consent_type: string
+          created_at?: string
+          data_categories?: string[] | null
+          expires_at?: string | null
+          granted?: boolean
+          hash?: string | null
+          id?: string
+          purpose?: string | null
+          revoked_at?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          consent_type?: string
+          created_at?: string
+          data_categories?: string[] | null
+          expires_at?: string | null
+          granted?: boolean
+          hash?: string | null
+          id?: string
+          purpose?: string | null
+          revoked_at?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       conversations: {
         Row: {
           created_at: string | null
@@ -45,6 +135,143 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      dao_proposals: {
+        Row: {
+          author_id: string
+          category: string
+          created_at: string
+          deadline: string
+          description: string
+          executed_at: string | null
+          execution_hash: string | null
+          id: string
+          quorum: number | null
+          status: string
+          title: string
+          updated_at: string
+          votes_against: number | null
+          votes_for: number | null
+        }
+        Insert: {
+          author_id: string
+          category: string
+          created_at?: string
+          deadline: string
+          description: string
+          executed_at?: string | null
+          execution_hash?: string | null
+          id?: string
+          quorum?: number | null
+          status?: string
+          title: string
+          updated_at?: string
+          votes_against?: number | null
+          votes_for?: number | null
+        }
+        Update: {
+          author_id?: string
+          category?: string
+          created_at?: string
+          deadline?: string
+          description?: string
+          executed_at?: string | null
+          execution_hash?: string | null
+          id?: string
+          quorum?: number | null
+          status?: string
+          title?: string
+          updated_at?: string
+          votes_against?: number | null
+          votes_for?: number | null
+        }
+        Relationships: []
+      }
+      dao_votes: {
+        Row: {
+          created_at: string
+          id: string
+          proposal_id: string
+          reason: string | null
+          vote_type: string
+          voter_id: string
+          voting_power: number | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          proposal_id: string
+          reason?: string | null
+          vote_type: string
+          voter_id: string
+          voting_power?: number | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          proposal_id?: string
+          reason?: string | null
+          vote_type?: string
+          voter_id?: string
+          voting_power?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "dao_votes_proposal_id_fkey"
+            columns: ["proposal_id"]
+            isOneToOne: false
+            referencedRelation: "dao_proposals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      decision_records: {
+        Row: {
+          actor_id: string | null
+          affected_entity: string | null
+          created_at: string
+          decision_type: string
+          details: Json | null
+          ethical_score: number | null
+          hash: string | null
+          id: string
+          resolved_at: string | null
+          resolved_by: string | null
+          severity: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          actor_id?: string | null
+          affected_entity?: string | null
+          created_at?: string
+          decision_type: string
+          details?: Json | null
+          ethical_score?: number | null
+          hash?: string | null
+          id?: string
+          resolved_at?: string | null
+          resolved_by?: string | null
+          severity?: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          actor_id?: string | null
+          affected_entity?: string | null
+          created_at?: string
+          decision_type?: string
+          details?: Json | null
+          ethical_score?: number | null
+          hash?: string | null
+          id?: string
+          resolved_at?: string | null
+          resolved_by?: string | null
+          severity?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       dreamweave_spaces: {
         Row: {
@@ -128,33 +355,117 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          badges: string[] | null
           bio: string | null
           created_at: string | null
           full_name: string | null
           id: string
+          quantum_id: string | null
+          reputation_score: number | null
           tamv_credits: number | null
+          total_contributions: number | null
+          total_transactions: number | null
           updated_at: string | null
           username: string | null
+          verification_level: number | null
         }
         Insert: {
           avatar_url?: string | null
+          badges?: string[] | null
           bio?: string | null
           created_at?: string | null
           full_name?: string | null
           id: string
+          quantum_id?: string | null
+          reputation_score?: number | null
           tamv_credits?: number | null
+          total_contributions?: number | null
+          total_transactions?: number | null
           updated_at?: string | null
           username?: string | null
+          verification_level?: number | null
         }
         Update: {
           avatar_url?: string | null
+          badges?: string[] | null
           bio?: string | null
           created_at?: string | null
           full_name?: string | null
           id?: string
+          quantum_id?: string | null
+          reputation_score?: number | null
           tamv_credits?: number | null
+          total_contributions?: number | null
+          total_transactions?: number | null
           updated_at?: string | null
           username?: string | null
+          verification_level?: number | null
+        }
+        Relationships: []
+      }
+      tamv_credits_ledger: {
+        Row: {
+          amount: number
+          balance_after: number | null
+          balance_before: number | null
+          created_at: string
+          description: string | null
+          hash: string | null
+          id: string
+          reference_id: string | null
+          reference_type: string | null
+          transaction_type: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          balance_after?: number | null
+          balance_before?: number | null
+          created_at?: string
+          description?: string | null
+          hash?: string | null
+          id?: string
+          reference_id?: string | null
+          reference_type?: string | null
+          transaction_type: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          balance_after?: number | null
+          balance_before?: number | null
+          created_at?: string
+          description?: string | null
+          hash?: string | null
+          id?: string
+          reference_id?: string | null
+          reference_type?: string | null
+          transaction_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          granted_at: string
+          granted_by: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          granted_at?: string
+          granted_by?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          granted_at?: string
+          granted_by?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
         }
         Relationships: []
       }
@@ -163,10 +474,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "guardian" | "creator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -293,6 +610,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "guardian", "creator", "user"],
+    },
   },
 } as const
