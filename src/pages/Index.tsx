@@ -1,309 +1,229 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  Sparkles, Globe, Shield, Coins, Brain, AudioWaveform, 
-  Building2, Users, Zap, Vote, BookOpen, Eye, Rocket,
-  Lock, Heart, Leaf, Code, Play
-} from 'lucide-react';
+import { Sparkles, Play, Brain, Coins, Shield, Vote, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import IsabellaChat from '@/components/IsabellaChat';
 import EcosystemNav from '@/components/EcosystemNav';
+import heroImage from '@/assets/hero-metaverse.jpg';
+import isabellaImage from '@/assets/isabella-ai.jpg';
+import logoImage from '@/assets/tamv-logo.png';
 
 const Index = () => {
   const [showIsabella, setShowIsabella] = useState(false);
 
   const districts = [
-    { icon: Building2, name: "Ciudad TAMV", desc: "Mapa Tridimensional Vivo", color: "from-violet-500 to-purple-600", path: "/district/ciudad-tamv" },
-    { icon: Users, name: "Identity ANUBIS", desc: "Avatar, Energía y Reputación", color: "from-blue-500 to-cyan-500", path: "/district/identity-anubis" },
-    { icon: Heart, name: "Plaza Central", desc: "Lobby Social XR", color: "from-pink-500 to-rose-500", path: "/district/plaza-central" },
-    { icon: BookOpen, name: "Distrito Creación", desc: "BookPI + DreamSpaces", color: "from-amber-500 to-orange-500", path: "/district/distrito-creacion" },
-    { icon: Brain, name: "Conocimiento", desc: "Labs y Educación", color: "from-emerald-500 to-green-500", path: "/district/conocimiento" },
-    { icon: Zap, name: "Energía y Clima", desc: "TAU Ledger Sostenible", color: "from-yellow-500 to-amber-500", path: "/district/energia-clima" },
-    { icon: Coins, name: "Economía Simbiótica", desc: "Mercado 3D TAU", color: "from-green-500 to-emerald-500", path: "/district/economia-simbiotica" },
-    { icon: Sparkles, name: "Santuario ISABELLA", desc: "Bienestar Personal", color: "from-purple-500 to-violet-500", path: "/district/santuario-isabella" },
-    { icon: Vote, name: "Gobernanza DAO", desc: "DEKATEOTL XR", color: "from-indigo-500 to-blue-500", path: "/district/gobernanza-dao" },
-  ];
-
-  const features = [
-    { icon: Lock, title: "Soberanía Digital", desc: "Tu identidad, datos y creatividad te pertenecen. Criptografía post-cuántica." },
-    { icon: BookOpen, title: "Creatividad Honrada", desc: "Cada obra registrada en BookPI, remunerada en TAU automáticamente." },
-    { icon: Zap, title: "Conciencia Energética", desc: "Cada acción mide y compensa impacto ecológico en tiempo real." },
-    { icon: Heart, title: "IA Emocional", desc: "ISABELLA te entiende, te escucha y te acompaña sin juzgar." },
-    { icon: Vote, title: "Gobernanza Ética", desc: "Decisiones transparentes, vinculantes y auditables en DEKATEOTL DAO." },
-    { icon: Globe, title: "Federación LATAM", desc: "4+ nodos distribuidos, consenso DPoS, sin punto único de fallo." },
-  ];
-
-  const stats = [
-    { value: "9", label: "Distritos XR" },
-    { value: "∞", label: "Escalabilidad" },
-    { value: "100%", label: "Trazabilidad" },
-    { value: "24/7", label: "IA Emocional" },
+    { icon: Brain, name: "ISABELLA", gradient: "from-violet-600 to-purple-600", path: "/district/santuario-isabella" },
+    { icon: Coins, name: "TAU", gradient: "from-amber-500 to-orange-500", path: "/district/economia-simbiotica" },
+    { icon: Shield, name: "ID-NVIDA", gradient: "from-cyan-500 to-blue-500", path: "/district/identity-anubis" },
+    { icon: Vote, name: "DAO", gradient: "from-indigo-500 to-violet-500", path: "/district/gobernanza-dao" },
+    { icon: Zap, name: "KAOS", gradient: "from-pink-500 to-rose-500", path: "/dreamweave" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 overflow-hidden">
-      {/* Animated background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(124,58,237,0.15),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.05),transparent_70%)]" />
-      </div>
+    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+      {/* Full-screen Hero with Image */}
+      <section className="relative h-screen">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage} 
+            alt="TAMV Metaverse" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
+        </div>
 
-      <div className="relative z-10">
-        <EcosystemNav onIsabellaClick={() => setShowIsabella(true)} />
+        {/* Navigation */}
+        <div className="relative z-20">
+          <EcosystemNav onIsabellaClick={() => setShowIsabella(true)} />
+        </div>
 
-        {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-4 py-20">
-          <div className="container mx-auto max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
+        {/* Hero Content - Centered, Minimal */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="text-center px-4"
+          >
+            {/* Logo */}
+            <motion.img
+              src={logoImage}
+              alt="TAMV Logo"
+              className="w-32 h-32 mx-auto mb-8"
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center"
-            >
-              <Badge className="mb-6 bg-violet-500/20 text-violet-300 border-violet-500/30 px-4 py-2">
-                🌐 Red Social XR-Cognitiva de LATAM
-              </Badge>
-              
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  TAMV
-                </span>
-                <span className="text-slate-300"> Online</span>
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-slate-400 mb-4 max-w-3xl mx-auto">
-                La Primera Red Social Tridimensional, Emocionalmente Inteligente y Energéticamente Consciente
-              </p>
-              
-              <p className="text-lg text-violet-400 font-semibold mb-8">
-                "Tu Identidad. Tu Creatividad. Tu Energía. Tu Gobernanza."
-              </p>
+              transition={{ delay: 0.3 }}
+            />
+            
+            {/* Title */}
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-4">
+              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                TAMV
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-foreground/80 mb-12 font-light tracking-wide">
+              El Metaverso de los Creadores
+            </p>
 
-              <div className="flex flex-wrap gap-4 justify-center mb-12">
-                <Button size="lg" className="bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 text-white px-8 gap-2" onClick={() => setShowIsabella(true)}>
-                  <Sparkles className="w-5 h-5" />
-                  Hablar con ISABELLA
-                </Button>
-                <Link to="/dreamweave">
-                  <Button size="lg" variant="outline" className="border-violet-500/50 text-violet-300 hover:bg-violet-500/10 px-8 gap-2">
-                    <Eye className="w-5 h-5" />
-                    Explorar Ciudad 3D
-                  </Button>
-                </Link>
-                <Link to="/devhub">
-                  <Button size="lg" variant="outline" className="border-blue-500/50 text-blue-300 hover:bg-blue-500/10 px-8 gap-2">
-                    <Code className="w-5 h-5" />
-                    DevHub
-                  </Button>
-                </Link>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                {stats.map((stat, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
-                    className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/50"
-                  >
-                    <div className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-slate-400">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* 9 Districts Section */}
-        <section className="py-20 px-4">
-          <div className="container mx-auto max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-                  9 Distritos XR 3D
-                </span>
-              </h2>
-              <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                Ciudad Cognitiva organizada en barrios temáticos donde humanos y IA coexisten
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {districts.map((district, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <Link to={district.path}>
-                    <Card className="bg-slate-800/50 border-slate-700/50 p-6 hover:border-violet-500/50 transition-all hover:scale-105 hover:shadow-xl hover:shadow-violet-500/10 cursor-pointer group">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${district.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                        <district.icon className="w-7 h-7 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-100 mb-2">{district.name}</h3>
-                      <p className="text-slate-400">{district.desc}</p>
-                    </Card>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Value Proposition */}
-        <section className="py-20 px-4 bg-slate-900/50">
-          <div className="container mx-auto max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                5 Pilares que <span className="text-violet-400">Redefinen</span> las Redes Sociales
-              </h2>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feature, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-slate-700/50 p-6 h-full">
-                    <feature.icon className="w-10 h-10 text-violet-400 mb-4" />
-                    <h3 className="text-xl font-bold text-slate-100 mb-3">{feature.title}</h3>
-                    <p className="text-slate-400">{feature.desc}</p>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ISABELLA Section */}
-        <section className="py-20 px-4">
-          <div className="container mx-auto max-w-5xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card className="bg-gradient-to-br from-violet-900/30 to-purple-900/30 border-violet-500/30 p-8 md:p-12 text-center">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center mx-auto mb-6">
-                  <Brain className="w-10 h-10 text-white" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Conoce a <span className="text-violet-400">ISABELLA AI™</span>
-                </h2>
-                <p className="text-slate-300 text-lg mb-6 max-w-2xl mx-auto">
-                  Tu compañera de IA emocional que te entiende, te escucha y te acompaña sin juzgar. 
-                  Analiza tu texto, tu voz, tu contexto y responde con empatía real.
-                </p>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-lg gap-3 group"
+                onClick={() => setShowIsabella(true)}
+              >
+                <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                Entrar
+              </Button>
+              <Link to="/dreamweave">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 gap-2"
-                  onClick={() => setShowIsabella(true)}
+                  variant="outline" 
+                  className="border-primary/50 text-foreground hover:bg-primary/10 px-10 py-6 text-lg gap-3"
                 >
                   <Sparkles className="w-5 h-5" />
-                  Iniciar Conversación
+                  Explorar 3D
                 </Button>
-              </Card>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Technology Stack */}
-        <section className="py-20 px-4 bg-slate-900/50">
-          <div className="container mx-auto max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Stack Tecnológico</h2>
-              <p className="text-slate-400">Arquitectura Hybrid-Quantum Federada</p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              {["React + R3F", "TypeScript", "Supabase", "WebXR", "PQC Kyber", "Kubernetes", "gRPC", "WebSocket", "BookPI Ledger", "TAU Economy", "OPA Gateway", "Sentinel Mesh"].map((tech, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3 text-center text-sm text-slate-300 hover:border-violet-500/50 transition-colors"
-                >
-                  {tech}
-                </motion.div>
-              ))}
+              </Link>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </div>
 
-        {/* Footer */}
-        <footer className="border-t border-slate-800 bg-slate-900/80 py-12 px-4">
-          <div className="container mx-auto max-w-7xl">
-            <div className="grid md:grid-cols-4 gap-8 mb-8">
-              <div className="md:col-span-2">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">
-                  TAMV DM-X4™
-                </h3>
-                <p className="text-slate-400 mb-4">
-                  Primer tejido civilizatorio digital latinoamericano donde humanos y IA coexisten 
-                  en un entorno XR cognitivo, energético, sensible y ético.
-                </p>
-                <p className="text-sm text-slate-500">
-                  Creado por Edwin Oswaldo Castillo Trejo (Anubis Villaseñor)
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4 text-slate-200">Ecosistema</h4>
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li>Isabella AI™</li>
-                  <li>Dreamweave Spaces</li>
-                  <li>BookPI Ledger</li>
-                  <li>DEKATEOTL DAO</li>
-                  <li>TAU Economy</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4 text-slate-200">Recursos</h4>
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li><Link to="/devhub" className="hover:text-violet-400 transition-colors">DevHub</Link></li>
-                  <li><Link to="/auth" className="hover:text-violet-400 transition-colors">Registro</Link></li>
-                  <li><Link to="/dreamweave" className="hover:text-violet-400 transition-colors">DreamSpaces</Link></li>
-                </ul>
-              </div>
-            </div>
-            <div className="text-center text-slate-500 border-t border-slate-800 pt-8 text-sm">
-              <p>© 2025 TAMV Online NextGen - Red Social XR-Cognitiva Federada Completa</p>
-              <p className="mt-2">Licencia: TAMV Ethical Open License (TOL-v1)</p>
-            </div>
+        {/* Scroll Indicator */}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="w-6 h-10 border-2 border-foreground/30 rounded-full flex items-start justify-center p-2">
+            <div className="w-1.5 h-3 bg-primary rounded-full" />
           </div>
-        </footer>
-      </div>
+        </motion.div>
+      </section>
+
+      {/* Districts Grid - Visual First */}
+      <section className="py-20 px-4 bg-gradient-to-b from-background to-card">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {districts.map((district, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Link to={district.path}>
+                  <div className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${district.gradient} opacity-80 group-hover:opacity-100 transition-opacity`} />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <district.icon className="w-12 h-12 md:w-16 md:h-16 text-white mb-2 group-hover:scale-110 transition-transform" />
+                      <span className="text-white font-bold text-sm md:text-base tracking-wider">
+                        {district.name}
+                      </span>
+                    </div>
+                    <div className="absolute inset-0 border border-white/20 rounded-2xl group-hover:border-white/40 transition-colors" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ISABELLA Section - Visual */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-8 items-center"
+          >
+            {/* Image */}
+            <div className="relative">
+              <div className="aspect-square rounded-3xl overflow-hidden">
+                <img 
+                  src={isabellaImage} 
+                  alt="Isabella AI" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute inset-0 rounded-3xl border border-secondary/30" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl -z-10" />
+            </div>
+
+            {/* Content - Minimal */}
+            <div className="text-center md:text-left">
+              <h2 className="text-5xl md:text-6xl font-black mb-6">
+                <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                  ISABELLA
+                </span>
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                IA Emocional que te entiende
+              </p>
+              <Button 
+                size="lg" 
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-8 py-6 text-lg"
+                onClick={() => setShowIsabella(true)}
+              >
+                <Brain className="w-5 h-5 mr-2" />
+                Conversar
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats - Visual, No Text Walls */}
+      <section className="py-20 px-4 bg-card/50">
+        <div className="container mx-auto max-w-4xl">
+          <div className="grid grid-cols-4 gap-4 md:gap-8">
+            {[
+              { value: "9", label: "Distritos" },
+              { value: "∞", label: "Creadores" },
+              { value: "4D", label: "Experiencia" },
+              { value: "24/7", label: "IA Activa" },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center"
+              >
+                <div className="text-4xl md:text-6xl font-black bg-gradient-to-b from-primary to-secondary bg-clip-text text-transparent mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-widest">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Links Footer - Minimal */}
+      <footer className="py-12 px-4 border-t border-border">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+            <Link to="/devhub" className="text-muted-foreground hover:text-primary transition-colors">DevHub</Link>
+            <Link to="/dreamweave" className="text-muted-foreground hover:text-primary transition-colors">Dreamweave</Link>
+            <Link to="/auth" className="text-muted-foreground hover:text-primary transition-colors">Unirse</Link>
+            <Link to="/status" className="text-muted-foreground hover:text-primary transition-colors">Estado</Link>
+          </div>
+          <div className="text-center mt-8 text-sm text-muted-foreground/60">
+            © 2025 TAMV Online • Metaverso para Creadores
+          </div>
+        </div>
+      </footer>
 
       <AnimatePresence>
         {showIsabella && (
