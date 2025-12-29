@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Sparkles, Play, Brain, Coins, Shield, Vote, Zap } from 'lucide-react';
+import { Sparkles, Play, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import IsabellaChat from '@/components/IsabellaChat';
 import EcosystemNav from '@/components/EcosystemNav';
@@ -9,16 +9,33 @@ import TAMVDashboard from '@/components/tamv/TAMVDashboard';
 import KAOSAudio from '@/components/tamv/KAOSAudio';
 import DAOGovernance from '@/components/tamv/DAOGovernance';
 import IDEnvida from '@/components/tamv/IDEnvida';
+import ImmersiveEntry from '@/components/tamv/ImmersiveEntry';
+import QuantumParticles from '@/components/tamv/QuantumParticles';
+import TrinityFederated from '@/components/tamv/TrinityFederated';
+import FilterSystem4Layers from '@/components/tamv/FilterSystem4Layers';
+import GuardiansSystem from '@/components/tamv/GuardiansSystem';
+import MemorySystem5Levels from '@/components/tamv/MemorySystem5Levels';
 import heroImage from '@/assets/hero-metaverse.jpg';
 import isabellaImage from '@/assets/isabella-ai.jpg';
 import logoImage from '@/assets/tamv-logo.png';
 
 const Index = () => {
   const [showIsabella, setShowIsabella] = useState(false);
+  const [showEntry, setShowEntry] = useState(() => !sessionStorage.getItem('tamv_entered'));
+
+  const handleEntryComplete = () => {
+    sessionStorage.setItem('tamv_entered', 'true');
+    setShowEntry(false);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
-      {/* Full-screen Hero with Image */}
+      <AnimatePresence>
+        {showEntry && <ImmersiveEntry onComplete={handleEntryComplete} />}
+      </AnimatePresence>
+
+      <QuantumParticles count={40} />
+
       <section className="relative h-screen">
         <div className="absolute inset-0">
           <img src={heroImage} alt="TAMV Metaverse" className="w-full h-full object-cover" />
@@ -90,10 +107,8 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* TAMV Dashboard - Visual Ecosystem Grid */}
       <TAMVDashboard />
 
-      {/* ISABELLA Section - Visual */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <motion.div
@@ -132,28 +147,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* KAOS Audio Visual Section */}
       <section className="py-20 px-4 bg-card/30">
         <div className="container mx-auto max-w-6xl">
           <KAOSAudio />
         </div>
       </section>
 
-      {/* ID-NVIDA Visual Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <IDEnvida />
         </div>
       </section>
 
-      {/* DAO Governance Visual Section */}
       <section className="py-20 px-4 bg-card/30">
         <div className="container mx-auto max-w-6xl">
           <DAOGovernance />
         </div>
       </section>
 
-      {/* Stats - Visual */}
+      <TrinityFederated />
+      <FilterSystem4Layers />
+      <GuardiansSystem />
+      <MemorySystem5Levels />
+
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="grid grid-cols-4 gap-4 md:gap-8">
@@ -183,7 +199,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-12 px-4 border-t border-border">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-wrap justify-center gap-6 md:gap-12">
