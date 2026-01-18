@@ -1,21 +1,20 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Sparkles, Play, Brain } from 'lucide-react';
+import { Sparkles, Play, Brain, Music, Coins, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import IsabellaChat from '@/components/IsabellaChat';
 import EcosystemNav from '@/components/EcosystemNav';
 import TAMVDashboard from '@/components/tamv/TAMVDashboard';
-import KAOSAudio from '@/components/tamv/KAOSAudio';
+import KAOSAudioComplete from '@/components/tamv/KAOSAudioComplete';
+import TAUEconomyComplete from '@/components/tamv/TAUEconomyComplete';
+import DEKATEOTLComplete from '@/components/tamv/DEKATEOTLComplete';
 import DAOGovernance from '@/components/tamv/DAOGovernance';
 import IDEnvida from '@/components/tamv/IDEnvida';
 import ImmersiveEntry from '@/components/tamv/ImmersiveEntry';
 import QuantumParticles from '@/components/tamv/QuantumParticles';
 import TrinityFederated from '@/components/tamv/TrinityFederated';
-import FilterSystem4Layers from '@/components/tamv/FilterSystem4Layers';
-import GuardiansSystem from '@/components/tamv/GuardiansSystem';
-import MemorySystem5Levels from '@/components/tamv/MemorySystem5Levels';
-import heroImage from '@/assets/hero-metaverse.jpg';
+import cosmicBg from '@/assets/cosmic-bg.jpg';
 import isabellaImage from '@/assets/isabella-ai.jpg';
 import logoImage from '@/assets/tamv-logo.png';
 
@@ -38,9 +37,8 @@ const Index = () => {
 
       <section className="relative h-screen">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="TAMV Metaverse" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
+          <img src={cosmicBg} alt="TAMV Metaverse" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background" />
         </div>
 
         <div className="relative z-20">
@@ -148,8 +146,20 @@ const Index = () => {
       </section>
 
       <section className="py-20 px-4 bg-card/30">
-        <div className="container mx-auto max-w-6xl">
-          <KAOSAudio />
+        <div className="container mx-auto max-w-7xl">
+          <KAOSAudioComplete />
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <TAUEconomyComplete />
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-card/30">
+        <div className="container mx-auto max-w-7xl">
+          <DEKATEOTLComplete />
         </div>
       </section>
 
@@ -159,16 +169,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-card/30">
-        <div className="container mx-auto max-w-6xl">
-          <DAOGovernance />
-        </div>
-      </section>
-
       <TrinityFederated />
-      <FilterSystem4Layers />
-      <GuardiansSystem />
-      <MemorySystem5Levels />
 
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
