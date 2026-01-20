@@ -14,7 +14,7 @@ import IDEnvida from '@/components/tamv/IDEnvida';
 import ImmersiveEntry from '@/components/tamv/ImmersiveEntry';
 import QuantumParticles from '@/components/tamv/QuantumParticles';
 import TrinityFederated from '@/components/tamv/TrinityFederated';
-import cosmicBg from '@/assets/cosmic-bg.jpg';
+import heroImage from '@/assets/tamv-city-hero.jpg';
 import isabellaImage from '@/assets/isabella-ai.jpg';
 import logoImage from '@/assets/tamv-logo.png';
 
@@ -37,8 +37,8 @@ const Index = () => {
 
       <section className="relative h-screen">
         <div className="absolute inset-0">
-          <img src={cosmicBg} alt="TAMV Metaverse" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background" />
+          <img src={heroImage} alt="TAMV Omniverso Civilizatorio" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
         </div>
 
         <div className="relative z-20">
