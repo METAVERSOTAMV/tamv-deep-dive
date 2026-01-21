@@ -14,9 +14,16 @@ import IDEnvida from '@/components/tamv/IDEnvida';
 import ImmersiveEntry from '@/components/tamv/ImmersiveEntry';
 import QuantumParticles from '@/components/tamv/QuantumParticles';
 import TrinityFederated from '@/components/tamv/TrinityFederated';
+import MembershipSystem from '@/components/tamv/MembershipSystem';
+import LotterySystem from '@/components/tamv/LotterySystem';
+import DreamSpacesEditor from '@/components/tamv/DreamSpacesEditor';
+import BookPIRegistry from '@/components/tamv/BookPIRegistry';
+import EconomyEngine from '@/components/tamv/EconomyEngine';
 import heroImage from '@/assets/tamv-city-hero.jpg';
-import isabellaImage from '@/assets/isabella-ai.jpg';
-import logoImage from '@/assets/tamv-logo.png';
+import isabellaImage from '@/assets/isabella-villaseñor.jpg';
+import logoImage from '@/assets/tamv-logo-oficial.png';
+import isabellaLogo from '@/assets/isabella-ai-logo.png';
+import utamvLogo from '@/assets/utamv-logo.jpg';
 
 const Index = () => {
   const [showIsabella, setShowIsabella] = useState(false);
@@ -164,6 +171,36 @@ const Index = () => {
       </section>
 
       <section className="py-20 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <MembershipSystem />
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-card/30">
+        <div className="container mx-auto max-w-7xl">
+          <LotterySystem />
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <DreamSpacesEditor />
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-card/30">
+        <div className="container mx-auto max-w-7xl">
+          <BookPIRegistry />
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <EconomyEngine />
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-card/30">
         <div className="container mx-auto max-w-6xl">
           <IDEnvida />
         </div>
