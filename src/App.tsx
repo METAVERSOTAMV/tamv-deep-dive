@@ -10,6 +10,7 @@ import DreamweaveSpaces from "./pages/DreamweaveSpaces";
 import DevHub from "./pages/DevHub";
 import Districts from "./pages/Districts";
 import SystemStatus from "./pages/SystemStatus";
+import TAMVOmniverso from "./pages/TAMVOmniverso";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/devhub" element={<DevHub />} />
           <Route path="/status" element={<SystemStatus />} />
           <Route path="/district/:districtId" element={<Districts />} />
+          <Route path="/omniverso" element={<TAMVOmniverso />} />
           <Route 
             path="/dreamweave" 
             element={
