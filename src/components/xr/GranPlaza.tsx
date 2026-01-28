@@ -138,7 +138,10 @@ const DistrictPortal = ({
       ringRef.current.rotation.z = state.clock.elapsedTime * 0.5;
     }
     if (portalRef.current) {
-      portalRef.current.material.opacity = 0.5 + Math.sin(state.clock.elapsedTime * 2) * 0.2;
+      const material = portalRef.current.material as THREE.MeshStandardMaterial;
+      if (material.opacity !== undefined) {
+        material.opacity = 0.5 + Math.sin(state.clock.elapsedTime * 2) * 0.2;
+      }
     }
   });
 

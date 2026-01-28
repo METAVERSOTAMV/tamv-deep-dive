@@ -18,7 +18,7 @@ interface TorreAnubisProps {
 
 // Eye of Anubis - Sentinel orb at top
 const EyeOfAnubis = ({ threatLevel }: { threatLevel: string }) => {
-  const eyeRef = useRef<THREE.Mesh>(null);
+  const eyeRef = useRef<THREE.Group>(null);
   const pupilRef = useRef<THREE.Mesh>(null);
   
   const colors = {
@@ -105,7 +105,10 @@ const TowerSegment = ({
   
   useFrame((state) => {
     if (patternRef.current && isGlowing) {
-      patternRef.current.material.opacity = 0.3 + Math.sin(state.clock.elapsedTime * 3) * 0.2;
+      const material = patternRef.current.material as THREE.MeshStandardMaterial;
+      if (material.opacity !== undefined) {
+        material.opacity = 0.3 + Math.sin(state.clock.elapsedTime * 3) * 0.2;
+      }
     }
   });
 
