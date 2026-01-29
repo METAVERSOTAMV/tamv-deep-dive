@@ -11,6 +11,8 @@ import DevHub from "./pages/DevHub";
 import Districts from "./pages/Districts";
 import SystemStatus from "./pages/SystemStatus";
 import TAMVOmniverso from "./pages/TAMVOmniverso";
+import Feed from "./pages/Feed";
+import Guardian from "./pages/Guardian";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/devhub" element={<DevHub />} />
           <Route path="/status" element={<SystemStatus />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/guardian" element={<Guardian />} />
           <Route path="/district/:districtId" element={<Districts />} />
           <Route path="/omniverso" element={<TAMVOmniverso />} />
           <Route 
