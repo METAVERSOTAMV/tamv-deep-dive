@@ -32,3 +32,18 @@ verify_jwt = false
 
 [functions.anubis-sentinel]
 verify_jwt = false
+
+[functions.identity-log]
+verify_jwt = false
+
+[functions.bookpi-log]
+verify_jwt = false
+
+[functions.hitl-resolve]
+verify_jwt = false
+
+[functions.social-api]
+verify_jwt = false
+
+[functions.devhub-api]
+verify_jwt = false
