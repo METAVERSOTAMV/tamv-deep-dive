@@ -1,5 +1,56 @@
 project_id = "qobdhbkwnkgnxovpsqzp"
 
+[functions.isabella-chat]
+verify_jwt = false
+
+[functions.tamv-api]
+verify_jwt = false
+
+[functions.social-api]
+verify_jwt = false
+
+[functions.bookpi-log]
+verify_jwt = false
+
+[functions.identity-log]
+verify_jwt = false
+
+[functions.hitl-resolve]
+verify_jwt = false
+
+[functions.devhub-api]
+verify_jwt = false
+
+[functions.anubis-sentinel]
+verify_jwt = false
+
+[functions.bookpi-audit]
+verify_jwt = false
+
+[functions.dao-governance]
+verify_jwt = false
+
+[functions.dekateotl-guardian]
+verify_jwt = false
+
+[functions.id-nvida]
+verify_jwt = false
+
+[functions.isabella-initiation]
+verify_jwt = false
+
+[functions.kaos-audio]
+verify_jwt = false
+
+[functions.phoenix-protocol]
+verify_jwt = false
+
+[functions.tamv-economy]
+verify_jwt = false
+
+[functions.notifications-api]
+verify_jwt = false
+
 [functions.phoenix-protocol]
 verify_jwt = false
 

@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      achievements: {
+        Row: {
+          category: string
+          code: string
+          created_at: string | null
+          description: string | null
+          icon_url: string | null
+          id: string
+          is_active: boolean | null
+          name: string
+          points: number | null
+          rarity: string | null
+        }
+        Insert: {
+          category: string
+          code: string
+          created_at?: string | null
+          description?: string | null
+          icon_url?: string | null
+          id?: string
+          is_active?: boolean | null
+          name: string
+          points?: number | null
+          rarity?: string | null
+        }
+        Update: {
+          category?: string
+          code?: string
+          created_at?: string | null
+          description?: string | null
+          icon_url?: string | null
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          points?: number | null
+          rarity?: string | null
+        }
+        Relationships: []
+      }
       audit_logs: {
         Row: {
           action: string
@@ -627,6 +666,57 @@ export type Database = {
           },
         ]
       }
+      media_library: {
+        Row: {
+          created_at: string | null
+          duration_seconds: number | null
+          file_size: number | null
+          filename: string
+          height: number | null
+          id: string
+          is_public: boolean | null
+          metadata: Json | null
+          mime_type: string | null
+          thumbnail_url: string | null
+          type: string
+          url: string
+          user_id: string
+          width: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          duration_seconds?: number | null
+          file_size?: number | null
+          filename: string
+          height?: number | null
+          id?: string
+          is_public?: boolean | null
+          metadata?: Json | null
+          mime_type?: string | null
+          thumbnail_url?: string | null
+          type: string
+          url: string
+          user_id: string
+          width?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          duration_seconds?: number | null
+          file_size?: number | null
+          filename?: string
+          height?: number | null
+          id?: string
+          is_public?: boolean | null
+          metadata?: Json | null
+          mime_type?: string | null
+          thumbnail_url?: string | null
+          type?: string
+          url?: string
+          user_id?: string
+          width?: number | null
+        }
+        Relationships: []
+      }
       messages: {
         Row: {
           content: string
@@ -661,6 +751,48 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      notifications: {
+        Row: {
+          actor_id: string | null
+          content: string | null
+          created_at: string | null
+          id: string
+          metadata: Json | null
+          read: boolean | null
+          reference_id: string | null
+          reference_type: string | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          actor_id?: string | null
+          content?: string | null
+          created_at?: string | null
+          id?: string
+          metadata?: Json | null
+          read?: boolean | null
+          reference_id?: string | null
+          reference_type?: string | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          actor_id?: string | null
+          content?: string | null
+          created_at?: string | null
+          id?: string
+          metadata?: Json | null
+          read?: boolean | null
+          reference_id?: string | null
+          reference_type?: string | null
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       posts: {
         Row: {
@@ -807,6 +939,115 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      tutorial_progress: {
+        Row: {
+          completed: boolean | null
+          completed_at: string | null
+          created_at: string | null
+          id: string
+          progress_percent: number | null
+          tutorial_id: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean | null
+          completed_at?: string | null
+          created_at?: string | null
+          id?: string
+          progress_percent?: number | null
+          tutorial_id: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean | null
+          completed_at?: string | null
+          created_at?: string | null
+          id?: string
+          progress_percent?: number | null
+          tutorial_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tutorial_progress_tutorial_id_fkey"
+            columns: ["tutorial_id"]
+            isOneToOne: false
+            referencedRelation: "tutorials"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      tutorials: {
+        Row: {
+          category: string
+          created_at: string | null
+          description: string | null
+          difficulty: string | null
+          duration_seconds: number | null
+          id: string
+          is_active: boolean | null
+          sort_order: number | null
+          thumbnail_url: string | null
+          title: string
+          video_url: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          description?: string | null
+          difficulty?: string | null
+          duration_seconds?: number | null
+          id?: string
+          is_active?: boolean | null
+          sort_order?: number | null
+          thumbnail_url?: string | null
+          title: string
+          video_url?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          difficulty?: string | null
+          duration_seconds?: number | null
+          id?: string
+          is_active?: boolean | null
+          sort_order?: number | null
+          thumbnail_url?: string | null
+          title?: string
+          video_url?: string | null
+        }
+        Relationships: []
+      }
+      user_achievements: {
+        Row: {
+          achievement_id: string
+          id: string
+          unlocked_at: string | null
+          user_id: string
+        }
+        Insert: {
+          achievement_id: string
+          id?: string
+          unlocked_at?: string | null
+          user_id: string
+        }
+        Update: {
+          achievement_id?: string
+          id?: string
+          unlocked_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_achievements_achievement_id_fkey"
+            columns: ["achievement_id"]
+            isOneToOne: false
+            referencedRelation: "achievements"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_roles: {
         Row: {
