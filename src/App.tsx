@@ -13,6 +13,7 @@ import SystemStatus from "./pages/SystemStatus";
 import TAMVOmniverso from "./pages/TAMVOmniverso";
 import Feed from "./pages/Feed";
 import Guardian from "./pages/Guardian";
+import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,14 @@ const App = () => (
           <Route path="/guardian" element={<Guardian />} />
           <Route path="/district/:districtId" element={<Districts />} />
           <Route path="/omniverso" element={<TAMVOmniverso />} />
+          <Route 
+            path="/profile" 
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            } 
+          />
           <Route 
             path="/dreamweave" 
             element={
