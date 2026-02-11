@@ -17,6 +17,7 @@ import TrinityFederated from '@/components/tamv/TrinityFederated';
 import MembershipSystem from '@/components/tamv/MembershipSystem';
 import LotterySystem from '@/components/tamv/LotterySystem';
 import DreamSpacesEditor from '@/components/tamv/DreamSpacesEditor';
+import StarfieldBackground from '@/components/tamv/StarfieldBackground';
 import BookPIRegistry from '@/components/tamv/BookPIRegistry';
 import EconomyEngine from '@/components/tamv/EconomyEngine';
 import heroImage from '@/assets/tamv-city-hero.jpg';
@@ -40,6 +41,7 @@ const Index = () => {
         {showEntry && <ImmersiveEntry onComplete={handleEntryComplete} />}
       </AnimatePresence>
 
+      <StarfieldBackground />
       <QuantumParticles count={40} />
 
       <section className="relative h-screen">

@@ -1,6 +1,6 @@
 import { useState, Suspense, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Grid, Environment, PerspectiveCamera, Html } from '@react-three/drei';
+import { OrbitControls, Grid, PerspectiveCamera, Html } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import * as THREE from 'three';
 import { 
@@ -74,7 +74,7 @@ const Scene3D = ({ objects, selectedId, onSelect }: {
       })}
       
       <OrbitControls makeDefault />
-      <Environment preset="city" />
+      {/* Environment preset removed - HDR files fail to load */}
     </>
   );
 };

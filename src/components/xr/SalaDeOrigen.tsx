@@ -1,7 +1,6 @@
 import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { 
-  Environment, 
   Float, 
   Sparkles,
   MeshReflectorMaterial,
@@ -429,7 +428,7 @@ Valió la pena.`;
       <DedicationDisplay text={dedicationText} isVisible={showDedication} />
       
       {/* Environment */}
-      <Environment preset="night" />
+      {/* Environment removed - HDR presets fail in deployed context */}
       <fog attach="fog" args={['#050510', 5, 40]} />
     </>
   );

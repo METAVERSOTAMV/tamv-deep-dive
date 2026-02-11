@@ -1,7 +1,6 @@
 import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { 
-  Environment, 
   Float, 
   Sparkles,
   MeshReflectorMaterial,
@@ -406,7 +405,7 @@ const GranPlazaScene = ({ threatLevel = 'safe' }: { threatLevel?: string }) => {
       <fog attach="fog" args={['#050510', 20, 100]} />
       
       {/* Environment */}
-      <Environment preset="night" />
+      {/* Environment removed - HDR presets fail to fetch in this context */}
     </>
   );
 };
