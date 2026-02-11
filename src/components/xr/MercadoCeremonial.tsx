@@ -1,7 +1,6 @@
 import { useRef, useMemo, Suspense, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { 
-  Environment, 
   Float, 
   Sparkles,
   MeshReflectorMaterial,
@@ -369,7 +368,7 @@ const MercadoScene = () => {
       {/* Fog */}
       <fog attach="fog" args={['#080810', 15, 60]} />
       
-      <Environment preset="night" />
+      {/* Environment removed - HDR presets fail in deployed context */}
     </>
   );
 };

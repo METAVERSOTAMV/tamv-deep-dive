@@ -1,7 +1,6 @@
 import { useRef, useMemo, Suspense, useState, useCallback } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { 
-  Environment, 
   Float, 
   Sparkles,
   MeshReflectorMaterial,
@@ -388,7 +387,7 @@ const SalaVivaScene = () => {
       {/* Fog */}
       <fog attach="fog" args={['#050510', 8, 35]} />
       
-      <Environment preset="night" />
+      {/* Environment removed - HDR presets fail in deployed context */}
     </>
   );
 };
